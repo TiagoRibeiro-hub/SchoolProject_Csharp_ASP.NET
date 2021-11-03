@@ -1,0 +1,32 @@
+D:\C#\Classes\Validacoes\libraryValidacoes\bin\Debug\libraryValidacoes.dll
+D:\C#\Classes\Validacoes\libraryValidacoes\bin\Debug\libraryValidacoes.pdb
+D:\C#\Classes\Validacoes\libraryValidacoes\obj\Debug\libraryValidacoes.csprojAssemblyReference.cache
+D:\C#\Classes\Validacoes\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CoreCompileInputs.cache
+D:\C#\Classes\Validacoes\libraryValidacoes\obj\Debug\libraryValidacoes.dll
+D:\C#\Classes\Validacoes\libraryValidacoes\obj\Debug\libraryValidacoes.pdb
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CoreCompileInputs.cache
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.dll
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.pdb
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.dll
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.pdb
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CopyComplete
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.dll
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.pdb
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.dll
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.xml
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CoreCompileInputs.cache
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CopyComplete
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.dll
+E:\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.pdb
+C:\Users\tiago\OneDrive\Ambiente de Trabalho\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csprojAssemblyReference.cache
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.dll
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\libraryValidacoes.pdb
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.dll
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\bin\Debug\Newtonsoft.Json.xml
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.AssemblyReference.cache
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CoreCompileInputs.cache
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.csproj.CopyComplete
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.dll
+D:\Micro\Projectos\Projecto C#\ProjectoFinalVinhos\libraryValidacoes\obj\Debug\libraryValidacoes.pdb

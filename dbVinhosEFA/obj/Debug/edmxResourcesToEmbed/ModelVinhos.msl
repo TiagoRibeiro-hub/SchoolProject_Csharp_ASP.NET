@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VinhosEFAModelStoreContainer" CdmEntityContainer="VinhosEFAEntities">
+    <EntitySetMapping Name="Castas">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Casta">
+        <MappingFragment StoreEntitySet="Casta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Caracteristicas" ColumnName="Caracteristicas" />
+          <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enologoes">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Enologo">
+        <MappingFragment StoreEntitySet="Enologo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Instragram" ColumnName="Instragram" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produtors">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Produtor">
+        <MappingFragment StoreEntitySet="Produtor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Morada" ColumnName="Morada" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regiaos">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Regiao">
+        <MappingFragment StoreEntitySet="Regiao">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoVinhoes">
+      <EntityTypeMapping TypeName="VinhosEFAModel.TipoVinho">
+        <MappingFragment StoreEntitySet="TipoVinho">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizadors">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Utilizador">
+        <MappingFragment StoreEntitySet="Utilizador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vinhoes">
+      <EntityTypeMapping TypeName="VinhosEFAModel.Vinho">
+        <MappingFragment StoreEntitySet="Vinho">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+          <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+          <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VinhoCastas">
+      <EntityTypeMapping TypeName="VinhosEFAModel.VinhoCasta">
+        <MappingFragment StoreEntitySet="VinhoCasta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+          <ScalarProperty Name="Casta" ColumnName="Casta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VinhoEnologoes">
+      <EntityTypeMapping TypeName="VinhosEFAModel.VinhoEnologo">
+        <MappingFragment StoreEntitySet="VinhoEnologo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+          <ScalarProperty Name="Enologo" ColumnName="Enologo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VinhoProvas">
+      <EntityTypeMapping TypeName="VinhosEFAModel.VinhoProva">
+        <MappingFragment StoreEntitySet="VinhoProva">
+          <ScalarProperty Name="Classificacao" ColumnName="Classificacao" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_AssociarCastas" FunctionName="VinhosEFAModel.Store.usp_AssociarCastas" />
+    <FunctionImportMapping FunctionImportName="usp_DissociarCastas" FunctionName="VinhosEFAModel.Store.usp_DissociarCastas" />
+    <FunctionImportMapping FunctionImportName="usp_GetIDUtilizador" FunctionName="VinhosEFAModel.Store.usp_GetIDUtilizador" />
+    <FunctionImportMapping FunctionImportName="usp_VinhoInsert" FunctionName="VinhosEFAModel.Store.usp_VinhoInsert" />
+    <FunctionImportMapping FunctionImportName="usp_AssociarEnologo" FunctionName="VinhosEFAModel.Store.usp_AssociarEnologo" />
+    <FunctionImportMapping FunctionImportName="usp_DissociarEnologo" FunctionName="VinhosEFAModel.Store.usp_DissociarEnologo" />
+    <FunctionImportMapping FunctionImportName="usp_GetListaVinhos" FunctionName="VinhosEFAModel.Store.usp_GetListaVinhos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetListaVinhos_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+          <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+          <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetVinhoById" FunctionName="VinhosEFAModel.Store.usp_GetVinhoById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetVinhoById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+          <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+          <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetVinhoByUser" FunctionName="VinhosEFAModel.Store.usp_GetVinhoByUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetVinhoByUser_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+          <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+          <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+          <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+          <ScalarProperty Name="User_Nome" ColumnName="User Nome" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

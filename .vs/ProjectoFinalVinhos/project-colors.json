@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "70c28e05-1612-4ff6-87a1-2ddad45eb305": {
+      "ProjectGuid": "70c28e05-1612-4ff6-87a1-2ddad45eb305",
+      "DisplayName": "dbVinhosEFA",
+      "ColorIndex": 0
+    },
+    "80a89cd8-83dd-4a69-a486-f0242eb59586": {
+      "ProjectGuid": "80a89cd8-83dd-4a69-a486-f0242eb59586",
+      "DisplayName": "AppVinhos",
+      "ColorIndex": 1
+    },
+    "37d6a6ff-91e4-495c-81eb-d172fe9fdf9d": {
+      "ProjectGuid": "37d6a6ff-91e4-495c-81eb-d172fe9fdf9d",
+      "DisplayName": "WebVinhos",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

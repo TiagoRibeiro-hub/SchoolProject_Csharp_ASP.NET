@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c5b0feca05e4e9d99f13f66455e2453" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="VinhosEFAModel.Casta" Width="1.5" PointX="0.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.Enologo" Width="1.5" PointX="5.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.Produtor" Width="1.5" PointX="0.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.Regiao" Width="1.5" PointX="2" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.TipoVinho" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.Utilizador" Width="1.5" PointX="4.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.Vinho" Width="1.5" PointX="2.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.VinhoCasta" Width="1.5" PointX="3.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.VinhoEnologo" Width="1.5" PointX="5.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VinhosEFAModel.VinhoProva" Width="1.5" PointX="7.375" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="VinhosEFAModel.fkCastaTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkCastaVinho" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkEnologoVinho" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoProdutor" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoRegiao" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkUtilizadorProva" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoUtilizador" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoCasta" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoEnologo" ManuallyRouted="false" />
+        <AssociationConnector Association="VinhosEFAModel.fkVinhoProva" ManuallyRouted="false" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

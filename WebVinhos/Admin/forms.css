@@ -1,0 +1,254 @@
+﻿/*----------------------------------------*/
+/* END Indice2*/
+.divOpcoes {
+    float: right;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    border-right: 5px solid darkred;
+}
+
+.divForms {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkForm {
+    padding-top: 2rem;
+    color: darkred;
+    font-family: 'Copperplate Gothic Bold';
+}
+
+    .linkForm:hover {
+        color: black;
+        text-decoration: underline;
+        font-weight: 900;
+    }
+/* END Indice2*/
+/*----------------------------------------*/
+/*----------------------------------------*/
+/* FORMULARIOS*/
+.divCentro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* VINHOS */
+.formVinhos {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formVinhos:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* PRODUTORES */
+.formProdutores {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formProdutores:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* REGIOES */
+.formRegioes {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formRegioes:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* TIPO DE VINHOS */
+.formTipoVinhos {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formTipoVinhos:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* CASTAS */
+.formCastas {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formCastas:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* ENOLOGOS */
+.formEnologos {
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+    .formEnologos:hover {
+        height: 350px;
+        width: 350px;
+    }
+
+/* END FORMULARIOS*/
+/*----------------------------------------*/
+/* FORMS */
+.divCaixaForms {
+    margin-left: 50px;
+}
+
+.divCaixaGrid {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.divTitulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloLabel {
+    color: darkred;
+    font-family: 'Copperplate Gothic Bold';
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.camposLabel {
+    color: darkred;
+    font-family: 'Copperplate Gothic Bold';
+    font-size: 30px;
+    font-style: italic;
+}
+
+.camposLabelDesactivar{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.btnForms {
+    width: 150px;
+    border-color: darkred;
+    background-color: transparent;
+    border-radius: 10px;
+    color: darkred;
+}
+
+    .btnForms:hover {
+        font-weight: 900;
+        border: 3px solid darkred;
+    }
+
+.linkButton {
+    font-size: 15px;
+    text-decoration: none;
+}
+    .linkButton:hover {
+        color: black;
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+
+.linkInserirNovoTipoVinho{
+    margin-left: 20px;
+}
+
+.linkButtonColorMargin {
+    color: darkred;
+    margin-top: 30px;
+    font-family: 'Copperplate Gothic Bold';
+}
+
+/* LISTBOX */
+.listbox {
+    width: 200px;
+    height: 150px;
+}
+
+.listboxListas {
+    width: 250px;
+    height: 250px;
+}
+
+/* DROPDOWN */
+.dropDownVinho {
+    width: 200px;
+}
+
+/*----------------------------------------*/
+/* END FORMS*/
+/*----------------------------------------*/
+/* DATALIST */
+
+.DataListItem{
+    margin: 30px;
+}
+
+.spanSize{
+    font-size: 20px;
+    color: black;
+}
+
+.linkTitulo {
+    color: darkred;
+    font-size: 35px;
+    text-decoration: none;
+    font-family: 'Copperplate Gothic Bold';
+    font-style: italic;
+    font-weight: bold;
+}
+
+    .linkTitulo:hover {
+        color: black;
+        text-decoration: underline;
+        font-size: 45px;
+    }
+
+.userLink {
+    color: darkred;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Copperplate Gothic Bold';
+    font-style: italic;
+    font-weight: bold;
+}
+    .userLink:hover {
+        color: black;
+        text-decoration: underline;
+        font-size: 25px;
+    }
+
+.imgVinhos {
+    padding-top: 20px;
+    height: 250px;
+    width: 100px;
+}
+
+.imgVerVinhos {
+    padding-top: 20px;
+    height: 500px;
+    width: auto;
+}
+

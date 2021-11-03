@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Indice.master.cs" Inherits="WebVinhos.Indice" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        /*   TITULO     */
+        .titulo {
+            margin-top: 50px;
+            height: 100px;
+            border-bottom: 7px solid darkred;
+        }
+
+        .textTitulo {
+            font-family: 'Copperplate Gothic Bold';
+            font-size: 50px;
+            font-weight: bolder;
+            font-style: italic;
+        }
+
+        /*   NAV IMGAGEM FORM     */
+        .NavImgForm {
+            height: 140px;
+        }
+
+        #Logo {
+            width: auto;
+            height: 130px;
+            padding-left: 30px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            border-radius: 50%;
+        }
+
+        /*   NAV LogIn Reg     */
+
+        .NavLogReg {
+            margin-top: 1rem;
+            height: 100px;
+        }
+
+        .linkIniSessao {
+            padding-right: 30px;
+        }
+
+        .linkReg {
+            padding-right: 80px;
+        }
+
+        /*   Link color     */
+
+        .linkColor {
+            color: darkred;
+            text-decoration: none;
+            font-family: 'Copperplate Gothic Bold';
+        }
+
+            .linkColor:hover {
+                color: black;
+                text-decoration: underline;
+                font-weight: 900;
+            }
+
+        .logInStatus {
+            font-family: 'Copperplate Gothic Bold';
+            font-size: 20px;
+            font-weight: bold;
+            font-style: italic;
+            color: darkred;
+            padding-right: 20px;
+        }
+
+        /*   CONTENT PLACE HOLDER     */
+        .CaixaConPlace {
+            margin-top: 75px;
+            margin-bottom: 75px;
+        }
+
+        @media screen and (max-width: 960px) {
+            .textTitulo {
+                font-size: 40px;
+            }
+
+            .NavLogReg {
+                margin-top: 0px;
+                padding-left: 50px;
+            }
+
+            .CaixaConPlace {
+                margin-top: 0px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .textTitulo {
+                font-size: 30px;
+            }
+        }
+        /* FOOTER */
+        .divfooter {
+            background-color: aqua;
+            border-top: 7px solid darkred;
+            height: 70px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-- TITULO --%>
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center titulo">
+                <div class="textTitulo">
+                    Vinhos Carrascão Avalicações
+                </div>
+            </div>
+        </div>
+
+        <%-- NAV --%>
+        <div class="container">
+            <div class="row row-cols-auto d-flex justify-content-between align-items-center mt-3 pe-3 ps-3 NavItems">
+
+                <%-- IMAGEM LINK FORMULARIO --%>
+                <div class="col d-flex justify-content-start align-items-center mt-3 NavImgForm">
+                    <asp:Image ID="Logo" runat="server" ImageUrl="~/Imagens/vinhos-logo.jpg" class="col" />
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/homePage.aspx" CssClass="col ps-sm-5 pe-sm-3 ps-3 linkColor">
+                            <h4 class="linkColor">Home</h4>
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="Pesquisar.aspx" CssClass="col ps-sm-4 pe-sm-2 ps-2 linkColor">
+                        <h5 class="linkColor">Pesquisar</h5>
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="Comentarios.aspx" CssClass="col ps-sm-4 pe-sm-2 ps-2 linkColor">
+                        <h5 class="linkColor">Comentarios</h5>
+                    </asp:HyperLink>
+                </div>
+
+                <%-- LOG IN  --%>
+                <div class="col d-flex justify-content-end align-items-center NavLogReg">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="LogIn.aspx" CssClass="link linkIniSessao linkColor">Iniciar Sessão</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="Register.aspx" CssClass="link linkReg linkColor">Registar</asp:HyperLink>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:LoginName FormatString="Bem Vindo {0}!!" runat="server" CssClass="logInStatus" />
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Utilizadores/MeusVinhos.aspx" CssClass="link linkIniSessao linkColor">Meus Vinhos</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="alterar.aspx" CssClass="link linkIniSessao linkColor">Alterar</asp:HyperLink>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="link linkIniSessao linkColor" OnLoggedOut="LoginStatus1_LoggedOut" />
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+
+            </div>
+        </div>
+        <%-- END NAV --%>
+        <%-- CONTENT PLACE HOLDER --%>
+
+        <div class="CaixaConPlace">
+            <asp:Panel ID="PanelPesquisar" runat="server" Style="margin-bottom: 25px; background-color: black">
+            </asp:Panel>
+            <asp:ContentPlaceHolder ID="Indice2" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+
+
+        <%-- FOOTER --%>
+        <div class="container">
+            <div class="divfooter">
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </form>
+</body>
+</html>

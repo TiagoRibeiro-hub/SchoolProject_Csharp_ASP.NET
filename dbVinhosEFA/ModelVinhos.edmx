@@ -1,0 +1,936 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VinhosEFAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Casta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Caracteristicas" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TipoVinho" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Enologo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Instragram" Type="nvarchar" MaxLength="150" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Produtor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Morada" Type="nvarchar" MaxLength="500" />
+          <Property Name="CodigoPostal" Type="varchar" MaxLength="8" />
+          <Property Name="Localidade" Type="nvarchar" MaxLength="250" />
+          <Property Name="Telefone" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="URL" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Regiao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="TipoVinho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="DataNascimento" Type="datetime2" Precision="7" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vinho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Foto" Type="nvarchar" MaxLength="200" />
+          <Property Name="Regiao" Type="int" />
+          <Property Name="Produtor" Type="int" />
+          <Property Name="TipoVinho" Type="int" />
+          <Property Name="Volume" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="TeorAlcoolico" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Temperatura" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Ano" Type="int" />
+          <Property Name="Utilizador" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="VinhoCasta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vinho" Type="int" />
+          <Property Name="Casta" Type="int" />
+        </EntityType>
+        <EntityType Name="VinhoEnologo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vinho" Type="int" />
+          <Property Name="Enologo" Type="int" />
+        </EntityType>
+        <EntityType Name="VinhoProva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vinho" Type="int" />
+          <Property Name="Utilizador" Type="int" />
+          <Property Name="Comentario" Type="nvarchar" MaxLength="500" />
+          <Property Name="Classificacao" Type="tinyint" />
+        </EntityType>
+        <Association Name="fkCastaTipo">
+          <End Role="TipoVinho" Type="Self.TipoVinho" Multiplicity="0..1" />
+          <End Role="Casta" Type="Self.Casta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Casta">
+              <PropertyRef Name="TipoVinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkCastaVinho">
+          <End Role="Casta" Type="Self.Casta" Multiplicity="0..1" />
+          <End Role="VinhoCasta" Type="Self.VinhoCasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoCasta">
+              <PropertyRef Name="Casta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkEnologoVinho">
+          <End Role="Enologo" Type="Self.Enologo" Multiplicity="0..1" />
+          <End Role="VinhoEnologo" Type="Self.VinhoEnologo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enologo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoEnologo">
+              <PropertyRef Name="Enologo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUtilizadorProva">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="VinhoProva" Type="Self.VinhoProva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoProva">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoCasta">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoCasta" Type="Self.VinhoCasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoCasta">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoEnologo">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoEnologo" Type="Self.VinhoEnologo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoEnologo">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoProdutor">
+          <End Role="Produtor" Type="Self.Produtor" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produtor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Produtor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoProva">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoProva" Type="Self.VinhoProva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoProva">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoRegiao">
+          <End Role="Regiao" Type="Self.Regiao" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regiao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Regiao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoTipo">
+          <End Role="TipoVinho" Type="Self.TipoVinho" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="TipoVinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoUtilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_AssociarCastas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vinho" Type="int" Mode="In" />
+          <Parameter Name="castas" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_AssociarEnologo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vinho" Type="int" Mode="In" />
+          <Parameter Name="enologo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DissociarCastas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vinho" Type="int" Mode="In" />
+          <Parameter Name="castas" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DissociarEnologo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vinho" Type="int" Mode="In" />
+          <Parameter Name="enologo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetIDUtilizador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetListaVinhos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetVinhoById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetVinhoByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_VinhoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nome" Type="nvarchar" Mode="In" />
+          <Parameter Name="foto" Type="nvarchar" Mode="In" />
+          <Parameter Name="regiao" Type="int" Mode="In" />
+          <Parameter Name="produtor" Type="int" Mode="In" />
+          <Parameter Name="tipo" Type="int" Mode="In" />
+          <Parameter Name="volume" Type="decimal" Mode="In" />
+          <Parameter Name="teorAlcoolico" Type="decimal" Mode="In" />
+          <Parameter Name="ano" Type="int" Mode="In" />
+          <Parameter Name="utilizador" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="VinhosEFAModelStoreContainer">
+          <EntitySet Name="Casta" EntityType="Self.Casta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enologo" EntityType="Self.Enologo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produtor" EntityType="Self.Produtor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regiao" EntityType="Self.Regiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoVinho" EntityType="Self.TipoVinho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizador" EntityType="Self.Utilizador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vinho" EntityType="Self.Vinho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VinhoCasta" EntityType="Self.VinhoCasta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VinhoEnologo" EntityType="Self.VinhoEnologo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VinhoProva" EntityType="Self.VinhoProva" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fkCastaTipo" Association="Self.fkCastaTipo">
+            <End Role="TipoVinho" EntitySet="TipoVinho" />
+            <End Role="Casta" EntitySet="Casta" />
+          </AssociationSet>
+          <AssociationSet Name="fkCastaVinho" Association="Self.fkCastaVinho">
+            <End Role="Casta" EntitySet="Casta" />
+            <End Role="VinhoCasta" EntitySet="VinhoCasta" />
+          </AssociationSet>
+          <AssociationSet Name="fkEnologoVinho" Association="Self.fkEnologoVinho">
+            <End Role="Enologo" EntitySet="Enologo" />
+            <End Role="VinhoEnologo" EntitySet="VinhoEnologo" />
+          </AssociationSet>
+          <AssociationSet Name="fkUtilizadorProva" Association="Self.fkUtilizadorProva">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="VinhoProva" EntitySet="VinhoProva" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoCasta" Association="Self.fkVinhoCasta">
+            <End Role="Vinho" EntitySet="Vinho" />
+            <End Role="VinhoCasta" EntitySet="VinhoCasta" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoEnologo" Association="Self.fkVinhoEnologo">
+            <End Role="Vinho" EntitySet="Vinho" />
+            <End Role="VinhoEnologo" EntitySet="VinhoEnologo" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoProdutor" Association="Self.fkVinhoProdutor">
+            <End Role="Produtor" EntitySet="Produtor" />
+            <End Role="Vinho" EntitySet="Vinho" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoProva" Association="Self.fkVinhoProva">
+            <End Role="Vinho" EntitySet="Vinho" />
+            <End Role="VinhoProva" EntitySet="VinhoProva" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoRegiao" Association="Self.fkVinhoRegiao">
+            <End Role="Regiao" EntitySet="Regiao" />
+            <End Role="Vinho" EntitySet="Vinho" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoTipo" Association="Self.fkVinhoTipo">
+            <End Role="TipoVinho" EntitySet="TipoVinho" />
+            <End Role="Vinho" EntitySet="Vinho" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoUtilizador" Association="Self.fkVinhoUtilizador">
+            <End Role="Utilizador" EntitySet="Utilizador" />
+            <End Role="Vinho" EntitySet="Vinho" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VinhosEFAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Casta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Caracteristicas" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="TipoVinho" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="TipoVinho1" Relationship="Self.fkCastaTipo" FromRole="Casta" ToRole="TipoVinho" />
+          <NavigationProperty Name="VinhoCastas" Relationship="Self.fkCastaVinho" FromRole="Casta" ToRole="VinhoCasta" />
+        </EntityType>
+        <EntityType Name="Enologo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Instragram" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="VinhoEnologoes" Relationship="Self.fkEnologoVinho" FromRole="Enologo" ToRole="VinhoEnologo" />
+        </EntityType>
+        <EntityType Name="Produtor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Morada" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Localidade" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="URL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vinhoes" Relationship="Self.fkVinhoProdutor" FromRole="Produtor" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="Regiao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descricao" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Vinhoes" Relationship="Self.fkVinhoRegiao" FromRole="Regiao" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="TipoVinho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Castas" Relationship="Self.fkCastaTipo" FromRole="TipoVinho" ToRole="Casta" />
+          <NavigationProperty Name="Vinhoes" Relationship="Self.fkVinhoTipo" FromRole="TipoVinho" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="Utilizador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataNascimento" Type="DateTime" Precision="7" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VinhoProvas" Relationship="Self.fkUtilizadorProva" FromRole="Utilizador" ToRole="VinhoProva" />
+          <NavigationProperty Name="Vinhoes" Relationship="Self.fkVinhoUtilizador" FromRole="Utilizador" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="Vinho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Foto" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Regiao" Type="Int32" />
+          <Property Name="Produtor" Type="Int32" />
+          <Property Name="TipoVinho" Type="Int32" />
+          <Property Name="Volume" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="TeorAlcoolico" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Temperatura" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Ano" Type="Int32" />
+          <Property Name="Utilizador" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Produtor1" Relationship="Self.fkVinhoProdutor" FromRole="Vinho" ToRole="Produtor" />
+          <NavigationProperty Name="Regiao1" Relationship="Self.fkVinhoRegiao" FromRole="Vinho" ToRole="Regiao" />
+          <NavigationProperty Name="TipoVinho1" Relationship="Self.fkVinhoTipo" FromRole="Vinho" ToRole="TipoVinho" />
+          <NavigationProperty Name="Utilizador1" Relationship="Self.fkVinhoUtilizador" FromRole="Vinho" ToRole="Utilizador" />
+          <NavigationProperty Name="VinhoCastas" Relationship="Self.fkVinhoCasta" FromRole="Vinho" ToRole="VinhoCasta" />
+          <NavigationProperty Name="VinhoEnologoes" Relationship="Self.fkVinhoEnologo" FromRole="Vinho" ToRole="VinhoEnologo" />
+          <NavigationProperty Name="VinhoProvas" Relationship="Self.fkVinhoProva" FromRole="Vinho" ToRole="VinhoProva" />
+        </EntityType>
+        <EntityType Name="VinhoCasta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vinho" Type="Int32" />
+          <Property Name="Casta" Type="Int32" />
+          <NavigationProperty Name="Casta1" Relationship="Self.fkCastaVinho" FromRole="VinhoCasta" ToRole="Casta" />
+          <NavigationProperty Name="Vinho1" Relationship="Self.fkVinhoCasta" FromRole="VinhoCasta" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="VinhoEnologo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vinho" Type="Int32" />
+          <Property Name="Enologo" Type="Int32" />
+          <NavigationProperty Name="Enologo1" Relationship="Self.fkEnologoVinho" FromRole="VinhoEnologo" ToRole="Enologo" />
+          <NavigationProperty Name="Vinho1" Relationship="Self.fkVinhoEnologo" FromRole="VinhoEnologo" ToRole="Vinho" />
+        </EntityType>
+        <EntityType Name="VinhoProva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vinho" Type="Int32" />
+          <Property Name="Utilizador" Type="Int32" />
+          <NavigationProperty Name="Utilizador1" Relationship="Self.fkUtilizadorProva" FromRole="VinhoProva" ToRole="Utilizador" />
+          <NavigationProperty Name="Vinho1" Relationship="Self.fkVinhoProva" FromRole="VinhoProva" ToRole="Vinho" />
+          <Property Name="Comentario" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Classificacao" Type="Byte" />
+        </EntityType>
+        <Association Name="fkCastaTipo">
+          <End Role="TipoVinho" Type="Self.TipoVinho" Multiplicity="0..1" />
+          <End Role="Casta" Type="Self.Casta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Casta">
+              <PropertyRef Name="TipoVinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkCastaVinho">
+          <End Role="Casta" Type="Self.Casta" Multiplicity="0..1" />
+          <End Role="VinhoCasta" Type="Self.VinhoCasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoCasta">
+              <PropertyRef Name="Casta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkEnologoVinho">
+          <End Role="Enologo" Type="Self.Enologo" Multiplicity="0..1" />
+          <End Role="VinhoEnologo" Type="Self.VinhoEnologo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enologo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoEnologo">
+              <PropertyRef Name="Enologo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoProdutor">
+          <End Role="Produtor" Type="Self.Produtor" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produtor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Produtor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoRegiao">
+          <End Role="Regiao" Type="Self.Regiao" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regiao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Regiao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoTipo">
+          <End Role="TipoVinho" Type="Self.TipoVinho" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoVinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="TipoVinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUtilizadorProva">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="VinhoProva" Type="Self.VinhoProva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoProva">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoUtilizador">
+          <End Role="Utilizador" Type="Self.Utilizador" Multiplicity="0..1" />
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilizador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vinho">
+              <PropertyRef Name="Utilizador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoCasta">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoCasta" Type="Self.VinhoCasta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoCasta">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoEnologo">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoEnologo" Type="Self.VinhoEnologo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoEnologo">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkVinhoProva">
+          <End Role="Vinho" Type="Self.Vinho" Multiplicity="0..1" />
+          <End Role="VinhoProva" Type="Self.VinhoProva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VinhoProva">
+              <PropertyRef Name="Vinho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VinhosEFAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Castas" EntityType="Self.Casta" />
+          <EntitySet Name="Enologoes" EntityType="Self.Enologo" />
+          <EntitySet Name="Produtors" EntityType="Self.Produtor" />
+          <EntitySet Name="Regiaos" EntityType="Self.Regiao" />
+          <EntitySet Name="TipoVinhoes" EntityType="Self.TipoVinho" />
+          <EntitySet Name="Utilizadors" EntityType="Self.Utilizador" />
+          <EntitySet Name="Vinhoes" EntityType="Self.Vinho" />
+          <EntitySet Name="VinhoCastas" EntityType="Self.VinhoCasta" />
+          <EntitySet Name="VinhoEnologoes" EntityType="Self.VinhoEnologo" />
+          <EntitySet Name="VinhoProvas" EntityType="Self.VinhoProva" />
+          <AssociationSet Name="fkCastaTipo" Association="Self.fkCastaTipo">
+            <End Role="TipoVinho" EntitySet="TipoVinhoes" />
+            <End Role="Casta" EntitySet="Castas" />
+          </AssociationSet>
+          <AssociationSet Name="fkCastaVinho" Association="Self.fkCastaVinho">
+            <End Role="Casta" EntitySet="Castas" />
+            <End Role="VinhoCasta" EntitySet="VinhoCastas" />
+          </AssociationSet>
+          <AssociationSet Name="fkEnologoVinho" Association="Self.fkEnologoVinho">
+            <End Role="Enologo" EntitySet="Enologoes" />
+            <End Role="VinhoEnologo" EntitySet="VinhoEnologoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoProdutor" Association="Self.fkVinhoProdutor">
+            <End Role="Produtor" EntitySet="Produtors" />
+            <End Role="Vinho" EntitySet="Vinhoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoRegiao" Association="Self.fkVinhoRegiao">
+            <End Role="Regiao" EntitySet="Regiaos" />
+            <End Role="Vinho" EntitySet="Vinhoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoTipo" Association="Self.fkVinhoTipo">
+            <End Role="TipoVinho" EntitySet="TipoVinhoes" />
+            <End Role="Vinho" EntitySet="Vinhoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkUtilizadorProva" Association="Self.fkUtilizadorProva">
+            <End Role="Utilizador" EntitySet="Utilizadors" />
+            <End Role="VinhoProva" EntitySet="VinhoProvas" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoUtilizador" Association="Self.fkVinhoUtilizador">
+            <End Role="Utilizador" EntitySet="Utilizadors" />
+            <End Role="Vinho" EntitySet="Vinhoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoCasta" Association="Self.fkVinhoCasta">
+            <End Role="Vinho" EntitySet="Vinhoes" />
+            <End Role="VinhoCasta" EntitySet="VinhoCastas" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoEnologo" Association="Self.fkVinhoEnologo">
+            <End Role="Vinho" EntitySet="Vinhoes" />
+            <End Role="VinhoEnologo" EntitySet="VinhoEnologoes" />
+          </AssociationSet>
+          <AssociationSet Name="fkVinhoProva" Association="Self.fkVinhoProva">
+            <End Role="Vinho" EntitySet="Vinhoes" />
+            <End Role="VinhoProva" EntitySet="VinhoProvas" />
+          </AssociationSet>
+          <FunctionImport Name="usp_AssociarCastas">
+            <Parameter Name="vinho" Mode="In" Type="Int32" />
+            <Parameter Name="castas" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DissociarCastas">
+            <Parameter Name="vinho" Mode="In" Type="Int32" />
+            <Parameter Name="castas" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetIDUtilizador" ReturnType="Collection(Int32)">
+          <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VinhoInsert" ReturnType="Collection(Decimal)">
+            <Parameter Name="nome" Mode="In" Type="String" />
+            <Parameter Name="foto" Mode="In" Type="String" />
+            <Parameter Name="regiao" Mode="In" Type="Int32" />
+            <Parameter Name="produtor" Mode="In" Type="Int32" />
+            <Parameter Name="tipo" Mode="In" Type="Int32" />
+            <Parameter Name="volume" Mode="In" Type="Decimal" />
+            <Parameter Name="teorAlcoolico" Mode="In" Type="Decimal" />
+            <Parameter Name="ano" Mode="In" Type="Int32" />
+            <Parameter Name="utilizador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AssociarEnologo">
+            <Parameter Name="vinho" Mode="In" Type="Int32" />
+            <Parameter Name="enologo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DissociarEnologo">
+            <Parameter Name="vinho" Mode="In" Type="Int32" />
+            <Parameter Name="enologo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetListaVinhos" ReturnType="Collection(VinhosEFAModel.usp_GetListaVinhos_Result)" />
+          <FunctionImport Name="usp_GetVinhoById" ReturnType="Collection(VinhosEFAModel.usp_GetVinhoById_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetVinhoByUser" ReturnType="Collection(VinhosEFAModel.usp_GetVinhoByUser_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <ComplexType Name="usp_GetListaVinhos_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Foto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Produtor" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Regiao" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="TipoVinho" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="Ano" Nullable="true" />
+          <Property Type="Decimal" Name="Volume" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="TeorAlcoolico" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="Temperatura" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="Utilizador" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetVinhoById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Foto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Produtor" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Regiao" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="TipoVinho" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="Ano" Nullable="true" />
+          <Property Type="Decimal" Name="Volume" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="TeorAlcoolico" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="Temperatura" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="Utilizador" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetVinhoByUser_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Foto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Produtor" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Regiao" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="TipoVinho" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="Ano" Nullable="true" />
+          <Property Type="Decimal" Name="Volume" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="TeorAlcoolico" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Decimal" Name="Temperatura" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="Int32" Name="Utilizador" Nullable="true" />
+          <Property Type="String" Name="User_Nome" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VinhosEFAModelStoreContainer" CdmEntityContainer="VinhosEFAEntities">
+          <EntitySetMapping Name="Castas">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Casta">
+              <MappingFragment StoreEntitySet="Casta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Caracteristicas" ColumnName="Caracteristicas" />
+                <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enologoes">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Enologo">
+              <MappingFragment StoreEntitySet="Enologo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Instragram" ColumnName="Instragram" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produtors">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Produtor">
+              <MappingFragment StoreEntitySet="Produtor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Morada" ColumnName="Morada" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Localidade" ColumnName="Localidade" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regiaos">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Regiao">
+              <MappingFragment StoreEntitySet="Regiao">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoVinhoes">
+            <EntityTypeMapping TypeName="VinhosEFAModel.TipoVinho">
+              <MappingFragment StoreEntitySet="TipoVinho">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizadors">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Utilizador">
+              <MappingFragment StoreEntitySet="Utilizador">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vinhoes">
+            <EntityTypeMapping TypeName="VinhosEFAModel.Vinho">
+              <MappingFragment StoreEntitySet="Vinho">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+                <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+                <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VinhoCastas">
+            <EntityTypeMapping TypeName="VinhosEFAModel.VinhoCasta">
+              <MappingFragment StoreEntitySet="VinhoCasta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+                <ScalarProperty Name="Casta" ColumnName="Casta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VinhoEnologoes">
+            <EntityTypeMapping TypeName="VinhosEFAModel.VinhoEnologo">
+              <MappingFragment StoreEntitySet="VinhoEnologo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+                <ScalarProperty Name="Enologo" ColumnName="Enologo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VinhoProvas">
+            <EntityTypeMapping TypeName="VinhosEFAModel.VinhoProva">
+              <MappingFragment StoreEntitySet="VinhoProva">
+                <ScalarProperty Name="Classificacao" ColumnName="Classificacao" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Vinho" ColumnName="Vinho" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_AssociarCastas" FunctionName="VinhosEFAModel.Store.usp_AssociarCastas" />
+          <FunctionImportMapping FunctionImportName="usp_DissociarCastas" FunctionName="VinhosEFAModel.Store.usp_DissociarCastas" />
+          <FunctionImportMapping FunctionImportName="usp_GetIDUtilizador" FunctionName="VinhosEFAModel.Store.usp_GetIDUtilizador" />
+          <FunctionImportMapping FunctionImportName="usp_VinhoInsert" FunctionName="VinhosEFAModel.Store.usp_VinhoInsert" />
+          <FunctionImportMapping FunctionImportName="usp_AssociarEnologo" FunctionName="VinhosEFAModel.Store.usp_AssociarEnologo" />
+          <FunctionImportMapping FunctionImportName="usp_DissociarEnologo" FunctionName="VinhosEFAModel.Store.usp_DissociarEnologo" />
+          <FunctionImportMapping FunctionImportName="usp_GetListaVinhos" FunctionName="VinhosEFAModel.Store.usp_GetListaVinhos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetListaVinhos_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+                <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+                <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetVinhoById" FunctionName="VinhosEFAModel.Store.usp_GetVinhoById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetVinhoById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+                <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+                <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetVinhoByUser" FunctionName="VinhosEFAModel.Store.usp_GetVinhoByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VinhosEFAModel.usp_GetVinhoByUser_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Produtor" ColumnName="Produtor" />
+                <ScalarProperty Name="Regiao" ColumnName="Regiao" />
+                <ScalarProperty Name="TipoVinho" ColumnName="TipoVinho" />
+                <ScalarProperty Name="Ano" ColumnName="Ano" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="TeorAlcoolico" ColumnName="TeorAlcoolico" />
+                <ScalarProperty Name="Temperatura" ColumnName="Temperatura" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Utilizador" ColumnName="Utilizador" />
+                <ScalarProperty Name="User_Nome" ColumnName="User Nome" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

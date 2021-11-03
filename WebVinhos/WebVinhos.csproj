@@ -1,0 +1,420 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37D6A6FF-91E4-495C-81EB-D172FE9FDF9D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebVinhos</RootNamespace>
+    <AssemblyName>WebVinhos</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\formCastas.aspx" />
+    <Content Include="Admin\formEnologos.aspx" />
+    <Content Include="Admin\formProdutores.aspx" />
+    <Content Include="Admin\formRegiao.aspx" />
+    <Content Include="Admin\forms.css" />
+    <Content Include="Admin\formTipoVinho.aspx" />
+    <Content Include="Admin\Formularios.aspx" />
+    <Content Include="alterar.aspx" />
+    <Content Include="Comentarios.aspx" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Admin\formVinhos.aspx" />
+    <Content Include="homePage.aspx" />
+    <Content Include="Imagens\casta.jpg" />
+    <Content Include="Imagens\enologo.jpg" />
+    <Content Include="Imagens\garrafeiraVinhos.jpg" />
+    <Content Include="Imagens\imagensVinhos\altano.jpg" />
+    <Content Include="Imagens\imagensVinhos\carm.jpg" />
+    <Content Include="Imagens\imagensVinhos\carm_reserva.jpg" />
+    <Content Include="Imagens\imagensVinhos\cartuxa.jpg" />
+    <Content Include="Imagens\imagensVinhos\CortesdeCima.jpg" />
+    <Content Include="Imagens\imagensVinhos\crasto.jpg" />
+    <Content Include="Imagens\imagensVinhos\Duvalley.jpg" />
+    <Content Include="Imagens\imagensVinhos\Duvalley_reserva.jpg" />
+    <Content Include="Imagens\imagensVinhos\esporao_colheita.jpg" />
+    <Content Include="Imagens\imagensVinhos\esporao_reserva.jpg" />
+    <Content Include="Imagens\imagensVinhos\esporao_verdelho.jpg" />
+    <Content Include="Imagens\imagensVinhos\evel_reserva.jpg" />
+    <Content Include="Imagens\imagensVinhos\PostScriptum.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuatroCastas.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadaFalorca.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadaFalorcaEncruzado.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadaFata.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadaPellada.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadeLaRosa.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadeLemos.jpg" />
+    <Content Include="Imagens\imagensVinhos\QuintadeSaesEncruzado.jpg" />
+    <Content Include="Imagens\mapa_regioes_viniculas.jpg" />
+    <Content Include="Imagens\tipos-de-vinho.jpg" />
+    <Content Include="Imagens\vindimas.jpg" />
+    <Content Include="LogIn.aspx" />
+    <Content Include="Pesquisar.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Imagens\vinhos-logo.jpg" />
+    <Content Include="Utilizadores\InseririNovoVinho.aspx" />
+    <Content Include="Utilizadores\MeusVinhos.aspx" />
+    <Content Include="VerVinho.aspx" />
+    <Content Include="VinhoPorUtilizadorAnonimos.aspx" />
+    <Content Include="Web Form User Control\LogIn.ascx" />
+    <Content Include="Web Form User Control\UserContro.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Indice.Master" />
+    <Content Include="Admin\indice2.master" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Web Form User Control\Registo.ascx" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Web Form User Control\VinhoPorUtilizador.ascx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\formCastas.aspx.cs">
+      <DependentUpon>formCastas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formCastas.aspx.designer.cs">
+      <DependentUpon>formCastas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formEnologos.aspx.cs">
+      <DependentUpon>formEnologos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formEnologos.aspx.designer.cs">
+      <DependentUpon>formEnologos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formProdutores.aspx.cs">
+      <DependentUpon>formProdutores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formProdutores.aspx.designer.cs">
+      <DependentUpon>formProdutores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formRegiao.aspx.cs">
+      <DependentUpon>formRegiao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formRegiao.aspx.designer.cs">
+      <DependentUpon>formRegiao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formTipoVinho.aspx.cs">
+      <DependentUpon>formTipoVinho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formTipoVinho.aspx.designer.cs">
+      <DependentUpon>formTipoVinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Formularios.aspx.cs">
+      <DependentUpon>Formularios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Formularios.aspx.designer.cs">
+      <DependentUpon>Formularios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\indice2.master.cs">
+      <DependentUpon>indice2.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\indice2.master.designer.cs">
+      <DependentUpon>indice2.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formVinhos.aspx.cs">
+      <DependentUpon>formVinhos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\formVinhos.aspx.designer.cs">
+      <DependentUpon>formVinhos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="alterar.aspx.cs">
+      <DependentUpon>alterar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="alterar.aspx.designer.cs">
+      <DependentUpon>alterar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comentarios.aspx.cs">
+      <DependentUpon>Comentarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comentarios.aspx.designer.cs">
+      <DependentUpon>Comentarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Funcoes.cs" />
+    <Compile Include="homePage.aspx.cs">
+      <DependentUpon>homePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homePage.aspx.designer.cs">
+      <DependentUpon>homePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Indice.Master.cs">
+      <DependentUpon>Indice.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Indice.Master.designer.cs">
+      <DependentUpon>Indice.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pesquisar.aspx.cs">
+      <DependentUpon>Pesquisar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pesquisar.aspx.designer.cs">
+      <DependentUpon>Pesquisar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizadores\InseririNovoVinho.aspx.cs">
+      <DependentUpon>InseririNovoVinho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizadores\InseririNovoVinho.aspx.designer.cs">
+      <DependentUpon>InseririNovoVinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilizadores\MeusVinhos.aspx.cs">
+      <DependentUpon>MeusVinhos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilizadores\MeusVinhos.aspx.designer.cs">
+      <DependentUpon>MeusVinhos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerVinho.aspx.cs">
+      <DependentUpon>VerVinho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerVinho.aspx.designer.cs">
+      <DependentUpon>VerVinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VinhoPorUtilizadorAnonimos.aspx.cs">
+      <DependentUpon>VinhoPorUtilizadorAnonimos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VinhoPorUtilizadorAnonimos.aspx.designer.cs">
+      <DependentUpon>VinhoPorUtilizadorAnonimos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web Form User Control\EmailTemp.cs" />
+    <Compile Include="Web Form User Control\LogIn.ascx.cs">
+      <DependentUpon>LogIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web Form User Control\LogIn.ascx.designer.cs">
+      <DependentUpon>LogIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web Form User Control\Registo.ascx.cs">
+      <DependentUpon>Registo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web Form User Control\Registo.ascx.designer.cs">
+      <DependentUpon>Registo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web Form User Control\VinhoPorUtilizador.ascx.cs">
+      <DependentUpon>VinhoPorUtilizador.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web Form User Control\VinhoPorUtilizador.ascx.designer.cs">
+      <DependentUpon>VinhoPorUtilizador.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Admin\Web.config" />
+    <Content Include="Utilizadores\Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppVinhos\AppVinhos.csproj">
+      <Project>{80a89cd8-83dd-4a69-a486-f0242eb59586}</Project>
+      <Name>AppVinhos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dbVinhosEFA\dbVinhosEFA.csproj">
+      <Project>{70c28e05-1612-4ff6-87a1-2ddad45eb305}</Project>
+      <Name>dbVinhosEFA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libraryValidacoes\libraryValidacoes.csproj">
+      <Project>{c5be7a63-05de-45dd-938a-4fb5e21baf33}</Project>
+      <Name>libraryValidacoes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53720</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53720/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
